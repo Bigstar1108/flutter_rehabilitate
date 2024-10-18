@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../models/index.dart';
@@ -24,7 +25,7 @@ class ProjectListItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           image: DecorationImage(
-            image: Image.network(project.bannerImageUrl).image,
+            image: CachedNetworkImageProvider(project.bannerImageUrl),
             fit: BoxFit.cover,
           ),
           border: Border.all(
