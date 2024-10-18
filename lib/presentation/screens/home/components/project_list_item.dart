@@ -3,13 +3,20 @@ import 'package:flutter/material.dart';
 
 import '../models/index.dart';
 
-class ProjectListItem extends StatelessWidget {
+class ProjectListItem extends StatefulWidget {
   const ProjectListItem({
     super.key,
     required this.project,
   });
 
   final Project project;
+
+  @override
+  State<ProjectListItem> createState() => _ProjectListItemState();
+}
+
+class _ProjectListItemState extends State<ProjectListItem> {
+  bool onLongPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +26,19 @@ class ProjectListItem extends StatelessWidget {
     final projectNameContainerHeight = projectListItemHeight * 0.4;
 
     return GestureDetector(
-      onTap: () => project.navigate(context),
+      onTap: () => widget.project.navigate(context),
+      onLongPress: () => setState(() {
+        onLongPressed = true;
+      }),
+      onLongPressEnd: (_) => setState(() {
+        onLongPressed = false;
+      }),
       child: Container(
         alignment: Alignment.bottomCenter,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           image: DecorationImage(
-            image: CachedNetworkImageProvider(project.bannerImageUrl),
+            image: CachedNetworkImageProvider(widget.project.bannerImageUrl),
             fit: BoxFit.cover,
           ),
           border: Border.all(
@@ -33,24 +46,27 @@ class ProjectListItem extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        child: Container(
-          height: projectNameContainerHeight,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          height: onLongPressed ? projectListItemHeight : projectNameContainerHeight,
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 0,
-                blurRadius: 4,
-                offset: const Offset(0, -4),
-              ),
-            ],
+            boxShadow: onLongPressed
+                ? null
+                : [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      spreadRadius: 0,
+                      blurRadius: 4,
+                      offset: const Offset(0, -4),
+                    ),
+                  ],
           ),
           alignment: Alignment.center,
           child: Text(
-            project.name,
+            widget.project.name,
             style: const TextStyle(
               fontSize: 20,
               height: 1.4,
