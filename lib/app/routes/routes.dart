@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
-
 import 'package:flutter_github_example/app/app.dart';
 import 'package:flutter_github_example/presentation/presentation.dart';
 
@@ -18,6 +16,10 @@ abstract class Routes {
     GoRoute(
       path: RoutePath.home,
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: RoutePath.weather,
+      builder: (context, state) => const WeatherScreen(),
     ),
   ];
 }

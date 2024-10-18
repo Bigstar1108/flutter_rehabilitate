@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_github_example/app/app.dart';
 
 import 'components/index.dart';
 import 'models/index.dart';
@@ -12,9 +13,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final List<Project> projects = [
-    Project(
+    const Project(
       name: 'Weather',
-      path: '',
+      path: RoutePath.weather,
       bannerImageUrl: 'https://as1.ftcdn.net/v2/jpg/04/32/66/24/1000_F_432662440_IAP1nmbtibrhmGFFA4FeIa1vz2ASySs7.jpg',
     ),
   ];
