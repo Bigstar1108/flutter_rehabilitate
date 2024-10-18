@@ -19,3 +19,17 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: Pretendard
+      fonts:
+        - asset: assets/fonts/Pretendard/Pretendard-Regular.otf
+          weight: 400
+        - asset: assets/fonts/Pretendard/Pretendard-Medium.otf
+          weight: 500
+        - asset: assets/fonts/Pretendard/Pretendard-Bold.otf
+          weight: 700
+    - family: DMSerifText
+      fonts:
+        - asset: assets/fonts/DMSerifText/DMSerifText-Regular.ttf
+          weight: 700
