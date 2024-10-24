@@ -1,1 +1,7 @@
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # NOTE: freezed와 json_serializable을 함께 사용할 경우 발생하는 불필요한 경고 끄기
+    # https://github.com/rrousselGit/freezed#disabling-invalid_annotation_target-warning-and-warning-in-generates-files
+    invalid_annotation_target: ignore

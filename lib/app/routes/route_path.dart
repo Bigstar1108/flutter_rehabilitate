@@ -1,4 +1,6 @@
-abstract class RoutePath {
+class RoutePath {
+  RoutePath._();
+
   static const String home = '/home';
 
   // >>> Weather (prefix: weather) >>>
