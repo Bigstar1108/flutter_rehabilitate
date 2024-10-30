@@ -871,12 +871,16 @@ CurrentWeatherMainResponse _$CurrentWeatherMainResponseFromJson(
 
 /// @nodoc
 mixin _$CurrentWeatherMainResponse {
+  @KelvinToCelsiusJsonConverter()
   double? get temp => throw _privateConstructorUsedError;
   @JsonKey(name: 'feels_like')
+  @KelvinToCelsiusJsonConverter()
   double? get feelsLike => throw _privateConstructorUsedError;
   @JsonKey(name: 'temp_min')
+  @KelvinToCelsiusJsonConverter()
   double? get tempMin => throw _privateConstructorUsedError;
   @JsonKey(name: 'temp_max')
+  @KelvinToCelsiusJsonConverter()
   double? get tempMax => throw _privateConstructorUsedError;
   int? get pressure => throw _privateConstructorUsedError;
   int? get humidity => throw _privateConstructorUsedError;
@@ -900,10 +904,16 @@ abstract class $CurrentWeatherMainResponseCopyWith<$Res> {
           CurrentWeatherMainResponse>;
   @useResult
   $Res call(
-      {double? temp,
-      @JsonKey(name: 'feels_like') double? feelsLike,
-      @JsonKey(name: 'temp_min') double? tempMin,
-      @JsonKey(name: 'temp_max') double? tempMax,
+      {@KelvinToCelsiusJsonConverter() double? temp,
+      @JsonKey(name: 'feels_like')
+      @KelvinToCelsiusJsonConverter()
+      double? feelsLike,
+      @JsonKey(name: 'temp_min')
+      @KelvinToCelsiusJsonConverter()
+      double? tempMin,
+      @JsonKey(name: 'temp_max')
+      @KelvinToCelsiusJsonConverter()
+      double? tempMax,
       int? pressure,
       int? humidity,
       @JsonKey(name: 'sea_level') int? seaLevel,
@@ -982,10 +992,16 @@ abstract class _$$CurrentWeatherMainResponseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? temp,
-      @JsonKey(name: 'feels_like') double? feelsLike,
-      @JsonKey(name: 'temp_min') double? tempMin,
-      @JsonKey(name: 'temp_max') double? tempMax,
+      {@KelvinToCelsiusJsonConverter() double? temp,
+      @JsonKey(name: 'feels_like')
+      @KelvinToCelsiusJsonConverter()
+      double? feelsLike,
+      @JsonKey(name: 'temp_min')
+      @KelvinToCelsiusJsonConverter()
+      double? tempMin,
+      @JsonKey(name: 'temp_max')
+      @KelvinToCelsiusJsonConverter()
+      double? tempMax,
       int? pressure,
       int? humidity,
       @JsonKey(name: 'sea_level') int? seaLevel,
@@ -1057,10 +1073,12 @@ class __$$CurrentWeatherMainResponseImplCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$CurrentWeatherMainResponseImpl implements _CurrentWeatherMainResponse {
   const _$CurrentWeatherMainResponseImpl(
-      this.temp,
-      @JsonKey(name: 'feels_like') this.feelsLike,
-      @JsonKey(name: 'temp_min') this.tempMin,
-      @JsonKey(name: 'temp_max') this.tempMax,
+      @KelvinToCelsiusJsonConverter() this.temp,
+      @JsonKey(name: 'feels_like')
+      @KelvinToCelsiusJsonConverter()
+      this.feelsLike,
+      @JsonKey(name: 'temp_min') @KelvinToCelsiusJsonConverter() this.tempMin,
+      @JsonKey(name: 'temp_max') @KelvinToCelsiusJsonConverter() this.tempMax,
       this.pressure,
       this.humidity,
       @JsonKey(name: 'sea_level') this.seaLevel,
@@ -1071,15 +1089,19 @@ class _$CurrentWeatherMainResponseImpl implements _CurrentWeatherMainResponse {
       _$$CurrentWeatherMainResponseImplFromJson(json);
 
   @override
+  @KelvinToCelsiusJsonConverter()
   final double? temp;
   @override
   @JsonKey(name: 'feels_like')
+  @KelvinToCelsiusJsonConverter()
   final double? feelsLike;
   @override
   @JsonKey(name: 'temp_min')
+  @KelvinToCelsiusJsonConverter()
   final double? tempMin;
   @override
   @JsonKey(name: 'temp_max')
+  @KelvinToCelsiusJsonConverter()
   final double? tempMax;
   @override
   final int? pressure;
@@ -1135,10 +1157,16 @@ class _$CurrentWeatherMainResponseImpl implements _CurrentWeatherMainResponse {
 abstract class _CurrentWeatherMainResponse
     implements CurrentWeatherMainResponse {
   const factory _CurrentWeatherMainResponse(
-          final double? temp,
-          @JsonKey(name: 'feels_like') final double? feelsLike,
-          @JsonKey(name: 'temp_min') final double? tempMin,
-          @JsonKey(name: 'temp_max') final double? tempMax,
+          @KelvinToCelsiusJsonConverter() final double? temp,
+          @JsonKey(name: 'feels_like')
+          @KelvinToCelsiusJsonConverter()
+          final double? feelsLike,
+          @JsonKey(name: 'temp_min')
+          @KelvinToCelsiusJsonConverter()
+          final double? tempMin,
+          @JsonKey(name: 'temp_max')
+          @KelvinToCelsiusJsonConverter()
+          final double? tempMax,
           final int? pressure,
           final int? humidity,
           @JsonKey(name: 'sea_level') final int? seaLevel,
@@ -1149,15 +1177,19 @@ abstract class _CurrentWeatherMainResponse
       _$CurrentWeatherMainResponseImpl.fromJson;
 
   @override
+  @KelvinToCelsiusJsonConverter()
   double? get temp;
   @override
   @JsonKey(name: 'feels_like')
+  @KelvinToCelsiusJsonConverter()
   double? get feelsLike;
   @override
   @JsonKey(name: 'temp_min')
+  @KelvinToCelsiusJsonConverter()
   double? get tempMin;
   @override
   @JsonKey(name: 'temp_max')
+  @KelvinToCelsiusJsonConverter()
   double? get tempMax;
   @override
   int? get pressure;

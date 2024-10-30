@@ -63,10 +63,14 @@ _$WeatherResponseImpl _$$WeatherResponseImplFromJson(
 _$CurrentWeatherMainResponseImpl _$$CurrentWeatherMainResponseImplFromJson(
         Map<String, dynamic> json) =>
     _$CurrentWeatherMainResponseImpl(
-      (json['temp'] as num?)?.toDouble(),
-      (json['feels_like'] as num?)?.toDouble(),
-      (json['temp_min'] as num?)?.toDouble(),
-      (json['temp_max'] as num?)?.toDouble(),
+      _$JsonConverterFromJson<double, double>(
+          json['temp'], const KelvinToCelsiusJsonConverter().fromJson),
+      _$JsonConverterFromJson<double, double>(
+          json['feels_like'], const KelvinToCelsiusJsonConverter().fromJson),
+      _$JsonConverterFromJson<double, double>(
+          json['temp_min'], const KelvinToCelsiusJsonConverter().fromJson),
+      _$JsonConverterFromJson<double, double>(
+          json['temp_max'], const KelvinToCelsiusJsonConverter().fromJson),
       (json['pressure'] as num?)?.toInt(),
       (json['humidity'] as num?)?.toInt(),
       (json['sea_level'] as num?)?.toInt(),

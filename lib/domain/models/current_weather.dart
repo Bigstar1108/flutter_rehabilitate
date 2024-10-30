@@ -41,7 +41,7 @@ class Weather with _$Weather {
     required int? id,
     required String? main,
     required String? description,
-    required String? iconUrl,
+    required String? iconId,
   }) = _Weather;
 }
 
@@ -66,7 +66,7 @@ class Wind with _$Wind {
   const Wind._();
 
   const factory Wind({
-    required double? spped,
+    required double? speed,
     required int? deg,
     required double? gust,
   }) = _Wind;

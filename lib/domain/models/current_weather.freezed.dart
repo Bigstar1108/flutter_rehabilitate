@@ -653,7 +653,7 @@ mixin _$Weather {
   int? get id => throw _privateConstructorUsedError;
   String? get main => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String? get iconUrl => throw _privateConstructorUsedError;
+  String? get iconId => throw _privateConstructorUsedError;
 
   /// Create a copy of Weather
   /// with the given fields replaced by the non-null parameter values.
@@ -666,7 +666,7 @@ abstract class $WeatherCopyWith<$Res> {
   factory $WeatherCopyWith(Weather value, $Res Function(Weather) then) =
       _$WeatherCopyWithImpl<$Res, Weather>;
   @useResult
-  $Res call({int? id, String? main, String? description, String? iconUrl});
+  $Res call({int? id, String? main, String? description, String? iconId});
 }
 
 /// @nodoc
@@ -687,7 +687,7 @@ class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
     Object? id = freezed,
     Object? main = freezed,
     Object? description = freezed,
-    Object? iconUrl = freezed,
+    Object? iconId = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -702,9 +702,9 @@ class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      iconUrl: freezed == iconUrl
-          ? _value.iconUrl
-          : iconUrl // ignore: cast_nullable_to_non_nullable
+      iconId: freezed == iconId
+          ? _value.iconId
+          : iconId // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -717,7 +717,7 @@ abstract class _$$WeatherImplCopyWith<$Res> implements $WeatherCopyWith<$Res> {
       __$$WeatherImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? id, String? main, String? description, String? iconUrl});
+  $Res call({int? id, String? main, String? description, String? iconId});
 }
 
 /// @nodoc
@@ -736,7 +736,7 @@ class __$$WeatherImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? main = freezed,
     Object? description = freezed,
-    Object? iconUrl = freezed,
+    Object? iconId = freezed,
   }) {
     return _then(_$WeatherImpl(
       id: freezed == id
@@ -751,9 +751,9 @@ class __$$WeatherImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      iconUrl: freezed == iconUrl
-          ? _value.iconUrl
-          : iconUrl // ignore: cast_nullable_to_non_nullable
+      iconId: freezed == iconId
+          ? _value.iconId
+          : iconId // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -766,7 +766,7 @@ class _$WeatherImpl extends _Weather {
       {required this.id,
       required this.main,
       required this.description,
-      required this.iconUrl})
+      required this.iconId})
       : super._();
 
   @override
@@ -776,11 +776,11 @@ class _$WeatherImpl extends _Weather {
   @override
   final String? description;
   @override
-  final String? iconUrl;
+  final String? iconId;
 
   @override
   String toString() {
-    return 'Weather(id: $id, main: $main, description: $description, iconUrl: $iconUrl)';
+    return 'Weather(id: $id, main: $main, description: $description, iconId: $iconId)';
   }
 
   @override
@@ -792,11 +792,11 @@ class _$WeatherImpl extends _Weather {
             (identical(other.main, main) || other.main == main) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.iconUrl, iconUrl) || other.iconUrl == iconUrl));
+            (identical(other.iconId, iconId) || other.iconId == iconId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, main, description, iconUrl);
+  int get hashCode => Object.hash(runtimeType, id, main, description, iconId);
 
   /// Create a copy of Weather
   /// with the given fields replaced by the non-null parameter values.
@@ -812,7 +812,7 @@ abstract class _Weather extends Weather {
       {required final int? id,
       required final String? main,
       required final String? description,
-      required final String? iconUrl}) = _$WeatherImpl;
+      required final String? iconId}) = _$WeatherImpl;
   const _Weather._() : super._();
 
   @override
@@ -822,7 +822,7 @@ abstract class _Weather extends Weather {
   @override
   String? get description;
   @override
-  String? get iconUrl;
+  String? get iconId;
 
   /// Create a copy of Weather
   /// with the given fields replaced by the non-null parameter values.
@@ -1115,7 +1115,7 @@ abstract class _CurrentWeatherMain extends CurrentWeatherMain {
 
 /// @nodoc
 mixin _$Wind {
-  double? get spped => throw _privateConstructorUsedError;
+  double? get speed => throw _privateConstructorUsedError;
   int? get deg => throw _privateConstructorUsedError;
   double? get gust => throw _privateConstructorUsedError;
 
@@ -1130,7 +1130,7 @@ abstract class $WindCopyWith<$Res> {
   factory $WindCopyWith(Wind value, $Res Function(Wind) then) =
       _$WindCopyWithImpl<$Res, Wind>;
   @useResult
-  $Res call({double? spped, int? deg, double? gust});
+  $Res call({double? speed, int? deg, double? gust});
 }
 
 /// @nodoc
@@ -1148,14 +1148,14 @@ class _$WindCopyWithImpl<$Res, $Val extends Wind>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? spped = freezed,
+    Object? speed = freezed,
     Object? deg = freezed,
     Object? gust = freezed,
   }) {
     return _then(_value.copyWith(
-      spped: freezed == spped
-          ? _value.spped
-          : spped // ignore: cast_nullable_to_non_nullable
+      speed: freezed == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
               as double?,
       deg: freezed == deg
           ? _value.deg
@@ -1176,7 +1176,7 @@ abstract class _$$WindImplCopyWith<$Res> implements $WindCopyWith<$Res> {
       __$$WindImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({double? spped, int? deg, double? gust});
+  $Res call({double? speed, int? deg, double? gust});
 }
 
 /// @nodoc
@@ -1191,14 +1191,14 @@ class __$$WindImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? spped = freezed,
+    Object? speed = freezed,
     Object? deg = freezed,
     Object? gust = freezed,
   }) {
     return _then(_$WindImpl(
-      spped: freezed == spped
-          ? _value.spped
-          : spped // ignore: cast_nullable_to_non_nullable
+      speed: freezed == speed
+          ? _value.speed
+          : speed // ignore: cast_nullable_to_non_nullable
               as double?,
       deg: freezed == deg
           ? _value.deg
@@ -1215,11 +1215,11 @@ class __$$WindImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$WindImpl extends _Wind {
-  const _$WindImpl({required this.spped, required this.deg, required this.gust})
+  const _$WindImpl({required this.speed, required this.deg, required this.gust})
       : super._();
 
   @override
-  final double? spped;
+  final double? speed;
   @override
   final int? deg;
   @override
@@ -1227,7 +1227,7 @@ class _$WindImpl extends _Wind {
 
   @override
   String toString() {
-    return 'Wind(spped: $spped, deg: $deg, gust: $gust)';
+    return 'Wind(speed: $speed, deg: $deg, gust: $gust)';
   }
 
   @override
@@ -1235,13 +1235,13 @@ class _$WindImpl extends _Wind {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WindImpl &&
-            (identical(other.spped, spped) || other.spped == spped) &&
+            (identical(other.speed, speed) || other.speed == speed) &&
             (identical(other.deg, deg) || other.deg == deg) &&
             (identical(other.gust, gust) || other.gust == gust));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, spped, deg, gust);
+  int get hashCode => Object.hash(runtimeType, speed, deg, gust);
 
   /// Create a copy of Wind
   /// with the given fields replaced by the non-null parameter values.
@@ -1254,13 +1254,13 @@ class _$WindImpl extends _Wind {
 
 abstract class _Wind extends Wind {
   const factory _Wind(
-      {required final double? spped,
+      {required final double? speed,
       required final int? deg,
       required final double? gust}) = _$WindImpl;
   const _Wind._() : super._();
 
   @override
-  double? get spped;
+  double? get speed;
   @override
   int? get deg;
   @override

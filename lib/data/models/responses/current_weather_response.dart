@@ -1,4 +1,3 @@
-import 'package:flutter_github_example/app/app.dart';
 import 'package:flutter_github_example/data/data.dart';
 import 'package:flutter_github_example/domain/domain.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -28,7 +27,25 @@ class CurrentWeatherResponse with _$CurrentWeatherResponse {
   factory CurrentWeatherResponse.fromJson(Map<String, dynamic> json) => _$CurrentWeatherResponseFromJson(json);
 }
 
-extension CurrentWeatherResponseMapper on CurrentWeatherResponse {}
+extension CurrentWeatherResponseMapper on CurrentWeatherResponse {
+  CurrentWeather asDomainModel() {
+    return CurrentWeather(
+      coord: coord?.asDomainModel(),
+      weather: weather?.map((e) => e.asDomainModel()).toList(),
+      base: base,
+      main: main?.asDomainModel(),
+      visibility: visibility,
+      wind: wind?.asDomainModel(),
+      clouds: clouds?.asDomainModel(),
+      dt: dt,
+      sys: sys?.asDomainModel(),
+      timezone: timezone,
+      id: id,
+      name: name,
+      cod: cod,
+    );
+  }
+}
 
 @Freezed(fromJson: true, toJson: false)
 class CoordResponse with _$CoordResponse {
@@ -67,7 +84,7 @@ extension WeatherResponseMapper on WeatherResponse {
       id: id,
       main: main,
       description: description,
-      iconUrl: WeatherIconUrlUtil.getWeahterIconUrl(iconId: icon),
+      iconId: icon,
     );
   }
 }
@@ -75,10 +92,10 @@ extension WeatherResponseMapper on WeatherResponse {
 @Freezed(fromJson: true, toJson: false)
 class CurrentWeatherMainResponse with _$CurrentWeatherMainResponse {
   const factory CurrentWeatherMainResponse(
-    double? temp,
-    @JsonKey(name: 'feels_like') double? feelsLike,
-    @JsonKey(name: 'temp_min') double? tempMin,
-    @JsonKey(name: 'temp_max') double? tempMax,
+    @KelvinToCelsiusJsonConverter() double? temp,
+    @JsonKey(name: 'feels_like') @KelvinToCelsiusJsonConverter() double? feelsLike,
+    @JsonKey(name: 'temp_min') @KelvinToCelsiusJsonConverter() double? tempMin,
+    @JsonKey(name: 'temp_max') @KelvinToCelsiusJsonConverter() double? tempMax,
     int? pressure,
     int? humidity,
     @JsonKey(name: 'sea_level') int? seaLevel,
@@ -86,6 +103,21 @@ class CurrentWeatherMainResponse with _$CurrentWeatherMainResponse {
   ) = _CurrentWeatherMainResponse;
 
   factory CurrentWeatherMainResponse.fromJson(Map<String, dynamic> json) => _$CurrentWeatherMainResponseFromJson(json);
+}
+
+extension CurrentWeatherMainResponseMapper on CurrentWeatherMainResponse {
+  CurrentWeatherMain asDomainModel() {
+    return CurrentWeatherMain(
+      temp: temp,
+      feelsLikeTemp: feelsLike,
+      minTemp: tempMin,
+      maxTemp: tempMax,
+      pressure: pressure,
+      humidity: humidity,
+      seaLevel: seaLevel,
+      groundLevel: groundLevel,
+    );
+  }
 }
 
 @Freezed(fromJson: true, toJson: false)
@@ -99,6 +131,16 @@ class WindResponse with _$WindResponse {
   factory WindResponse.fromJson(Map<String, dynamic> json) => _$WindResponseFromJson(json);
 }
 
+extension WindResponseMapper on WindResponse {
+  Wind asDomainModel() {
+    return Wind(
+      speed: speed,
+      deg: deg,
+      gust: gust,
+    );
+  }
+}
+
 @Freezed(fromJson: true, toJson: false)
 class CloudsResponse with _$CloudsResponse {
   const factory CloudsResponse(
@@ -106,6 +148,12 @@ class CloudsResponse with _$CloudsResponse {
   ) = _CloudsResponse;
 
   factory CloudsResponse.fromJson(Map<String, dynamic> json) => _$CloudsResponseFromJson(json);
+}
+
+extension CloudsResponseMapper on CloudsResponse {
+  Clouds asDomainModel() {
+    return Clouds(all: all);
+  }
 }
 
 @Freezed(fromJson: true, toJson: false)
@@ -119,4 +167,16 @@ class CurrentWeatherSysResponse with _$CurrentWeatherSysResponse {
   ) = _CurrentWeatherSysResponse;
 
   factory CurrentWeatherSysResponse.fromJson(Map<String, dynamic> json) => _$CurrentWeatherSysResponseFromJson(json);
+}
+
+extension CurrentWeatherSysResponseMapper on CurrentWeatherSysResponse {
+  CurrentWeatherSys asDomainModel() {
+    return CurrentWeatherSys(
+      type: type,
+      id: id,
+      country: country,
+      sunrise: sunrise,
+      sunset: sunset,
+    );
+  }
 }
