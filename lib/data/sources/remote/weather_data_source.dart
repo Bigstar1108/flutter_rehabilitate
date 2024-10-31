@@ -4,8 +4,6 @@ import 'package:flutter_github_example/data/data.dart';
 
 part 'weather_data_source.g.dart';
 
-// https://api.openweathermap.org/data/2.5
-
 @RestApi()
 abstract class WeatherDataSource {
   factory WeatherDataSource(Dio dio, {String baseUrl}) = _WeatherDataSource;

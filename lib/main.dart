@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_github_example/app/app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// service locator (get_it) 초기화
+  await initLocator();
+
   runApp(
     const MainApp(),
   );
